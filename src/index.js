@@ -1,10 +1,13 @@
-import {homePageElem, menuPageElem, footerElem, navbarElem} from './content.js';
+import {homePageElem, menuPageElem, contactElem, footerElem, navbarElem} from './content.js';
 
 let contentDiv = document.querySelector('.content');
 
 // initialize the website on the landingContent page
 contentDiv.appendChild(navbarElem());
-contentDiv.appendChild(homePageElem());
+const main = document.createElement('div');
+main.classList.add('main');
+main.style.backgroundImage = "url(dylan-mullins-ykFYIojIbVw-unsplash.jpg)";
+contentDiv.appendChild(main);
 contentDiv.appendChild(footerElem());
 
 // navbar on click functionality
@@ -18,7 +21,7 @@ const resetMainContent = (content) => {
     }else if(content == 'menu') {
         mainContent.appendChild(menuPageElem());
     }else if(content == 'contact'){
-        mainContent.appendChild(contactPageContent());
+        mainContent.appendChild(contactElem());
     }
 }
 
@@ -38,4 +41,5 @@ menuBtnElemArray.forEach(elem => {
 });
 
 // set first button (likely home) as initial 'click'
+resetMainContent('home');
 menuBtnElemArray[0].classList.add('clickedNavBtn');

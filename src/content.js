@@ -1,17 +1,17 @@
-import { menuList } from "./config.js";
+import { menuList, contactPageList } from "./config.js";
 
 // Home Page (landing page)
 const homePageElem = () => {
 
     const homePageDiv = document.createElement('div');
-    homePageDiv.classList.add('main');
+    homePageDiv.classList.add('home');
 
     // background image
-    homePageDiv.style.backgroundImage = "url(dylan-mullins-ykFYIojIbVw-unsplash.jpg)";
+
 
     // resturant name
     const header = document.createElement('h1');
-    header.textContent = 'HOT MAMA\'S PIZZA';
+    header.textContent = 'FAUX MAMA\'S PIZZA';
     homePageDiv.appendChild(header);
 
     // description
@@ -30,42 +30,95 @@ const homePageElem = () => {
 
 // TODO: Menu Page
 const menuPageElem = () => {
-    const menuPageContainer = document.createElement('div');
-    menuPageContainer.classList.add('menu');
 
     const menuPageDiv = document.createElement('div');
-    menuPageDiv.classList.add('menuList');
+    menuPageDiv.classList.add('menu');
 
-    menuList.forEach(item => {
-        const menuItem = document.createElement('div');
-        menuItem.classList.add('menuItem');
+    // each category
+    menuList.forEach(category => {
 
-        const image = document.createElement('img');
-        image.src = item.image;
-        image.alt = item.description;
-        menuItem.appendChild(image);
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('menu-category');
 
-        const title = document.createElement('h1');
-        title.textContent = item.title;
-        menuItem.appendChild(title);
+        const categoryTitleElem = document.createElement('h1');
+        categoryTitleElem.textContent = category.title;
 
-        const description = document.createElement('p');
-        description.textContent = item.description;
-        menuItem.appendChild(description);
+        categoryTitleElem.style.backgroundImage = `url("${category.image}")`;
 
-        const cost = document.createElement('p');
-        cost.textContent = `\$${item.cost}`;
-        menuItem.appendChild(cost);
+        categoryDiv.appendChild(categoryTitleElem);
 
-        menuPageDiv.appendChild(menuItem);
+        // for each item in that category
+        const itemsListDiv = document.createElement('div');
+        itemsListDiv.classList.add('items-list');
+        category.items.forEach(item => {
+
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('item');
+
+            const itemTitle = document.createElement('h2');
+            itemTitle.textContent = item.title;
+            itemDiv.appendChild(itemTitle);
+
+            const itemDescription = document.createElement('p');
+            itemDescription.textContent = item.description;
+            itemDiv.appendChild(itemDescription);
+
+            itemsListDiv.appendChild(itemDiv);
+        });
+        categoryDiv.appendChild(itemsListDiv);
+
+        menuPageDiv.appendChild(categoryDiv);
     });
 
-    menuPageContainer.appendChild(menuPageDiv);
-
-    return menuPageContainer;
+    return menuPageDiv;
 }
 
-// TODO: Conact Page
+// Contact Page
+const contactElem = () => {
+    const contactPageDiv = document.createElement('div');
+    contactPageDiv.classList.add('contact');
+
+    // map (google api)
+    const map = document.createElement('div');
+    map.classList.add('map');
+    map.textContent = 'map';
+    contactPageDiv.appendChild(map);
+
+    // contact
+    contactPageList.forEach(elem => {
+
+        const contactItem = document.createElement('div');
+        contactItem.classList.add('contact-item');
+
+        const contactTitle = document.createElement('h1');
+        contactTitle.textContent = elem.title;
+        contactTitle.style.textDecoration = 'underline';
+        contactItem.appendChild(contactTitle);
+
+        elem.description.forEach(desc => {
+
+            // check for link
+            if(typeof desc !== 'string'){
+                const a = document.createElement('a');
+                let linkText = document.createElement('p');
+                linkText.textContent = desc.link;
+                a.appendChild(linkText);
+                a.title = desc.link;
+                a.href = desc.link;
+                contactItem.appendChild(a);
+
+            // otherwise it's plain text
+            }else{
+                const contactItemDesc = document.createElement('p');
+                contactItemDesc.textContent = desc;
+                contactItem.appendChild(contactItemDesc);
+            }
+        });
+        contactPageDiv.appendChild(contactItem);
+    });
+
+    return contactPageDiv;
+}
 
 const navbarElem = () => {
 
@@ -117,4 +170,4 @@ const footerElem = () => {
 }
 
 
-export {homePageElem, menuPageElem, footerElem, navbarElem};
+export {homePageElem, menuPageElem, contactElem, footerElem, navbarElem};
