@@ -4,8 +4,6 @@ body {
     margin: 0;
 }
 
-
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -14,6 +12,11 @@ ul {
     display: flex;
     gap: 5vw;
     padding-left: 35px;
+}
+
+.navbar li:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 .content {
@@ -31,6 +34,11 @@ ul {
     font-size: 4vw;
     color: rgb(6, 51, 0);
     background-color: rgba(255, 255, 255, 0.747);
+}
+
+.clickedNavBtn {
+    color: #c63c53;
+    text-decoration: underline;
 }
 
 .main {
@@ -55,12 +63,54 @@ ul {
 .main h1,
 .main p {
     text-align: center;
-    text-shadow: 2px 2px 3px black;
+    text-shadow: 2px 2px 5px black;
     margin: 0;
+}
+
+.main .menu {
+
+    margin-top: 15vh;
+    width: 80vw;
+    background-color: white;
+}
+
+.main .menuList {
+    margin: auto;
+    padding: auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, 26vw);
+    grid-template-rows: auto;
+}
+
+.menuItem {
+    background-color: #0a1e24;
+    padding: 10px;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.menuItem h1 {
+    font-size: 4vw;
+}
+
+.menuItem p {
+    font-size: 2vw;
+
+}
+
+.menuItem img {
+    width: 300px;
 }
 
 .main button {
     background: none;
+    cursor: pointer;
 	color: inherit;
 	border: solid;
     border-radius: 10px;
@@ -75,4 +125,31 @@ ul {
 .main p,
 .main button {
     color: white;
+}
+
+.footer {
+    background-color: #0a1e24;
+    box-shadow: 0px -5px 5px #0a1e24;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+
+    font-size: 1vw;
+}
+
+.footer img {
+    height: 2.5vw;
+    width: 2.5vw;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(24deg) brightness(103%) contrast(106%);
+    transition: transform 0.15s;
+}
+
+.footer img:hover {
+    transform: scale(1.1);
+}
+
+.footer img:active{
+    transform: scale(1);
 }
