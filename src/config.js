@@ -1,58 +1,62 @@
+import timelessCategoryImage from './assets/images/menu_images/amirali-mirhashemian-XtLPfib7OuM-unsplash.jpg';
+import newAgeCategoryImage from './assets/images/menu_images/pexels-narda-yescas-1566837.jpg';
 
+const navbarList = [
+    'Home',
+    'Menu',
+    'Contact',
+];
 
-const menuItem = (title, description) => {
-    return {title, description};
-}
-
-const menuCategory = (title, image, items) => {
-    return {title, image, items};
+const homePageContent = {
+    header: 'FAUX MAMA\'S PIZZA',
+    underHeader: '700 E Pine St Seattle, Washington 98122',
 }
 
 const menuList = [
-    menuCategory(
-        'timeless pies',
-        'menu_images/amirali-mirhashemian-XtLPfib7OuM-unsplash.jpg',
-        [
-            menuItem(
-                'Pepperoni',
-                'hand tossed dough | mozzarella | pepperoni',
-            ),
-            menuItem(
-                'Caprese',
-                'olive oil | fresh basil | cherry tomatoes | mozzarella',
-            ),
-            menuItem(
-                'Margherita',
-                'San Marzano tomatoes | mozzarella | fresh basil',
-            ),
-            menuItem(
-                'Capricciosa',
-                'artichokes | mushrooms | olives | prosciutto | mozzarella',
-            ),
+    {
+        categoryTitle: 'timeless pies',
+        image: timelessCategoryImage,
+        items: [
+            {
+                title: 'Pepperoni',
+                description: 'hand tossed dough | mozzarella | pepperoni',
+            },
+            {
+                title: 'Caprese',
+                description: 'olive oil | fresh basil | cherry tomatoes | mozzarella',
+            },
+            {
+                title: 'Margherita',
+                description: 'San Marzano tomatoes | mozzarella | fresh basil',
+            },
+            {
+                title: 'Capricciosa',
+                description: 'artichokes | mushrooms | olives | prosciutto | mozzarella',
+            },
         ],
-    ),
-    menuCategory(
-        'new age pies',
-        'menu_images/pexels-narda-yescas-1566837.jpg',
-        [
-            menuItem(
-                'Mashed Potato',
-                'mashed potato | white pie | mozzarella | bacon',
-            ),
-            menuItem(
-                'Vegan',
-                'red onion | mushroom | artichoke | argula | vegan cheese',
-            ),
-            menuItem(
-                'Spicy Honey',
-                'jalapenos | pepperoni | hot honey',
-            ),
-            menuItem(
-                'BBQ Chicken',
-                'BBQ chicken | pepperoni | pepperoncini | mozzarella',
-            ),
-        ],
-    ),
+    },
+    {
+        categoryTitle: 'new age',
+        image: newAgeCategoryImage,
+        items: [
+            {
+                title: 'Mashed Potato',
+                description: 'mashed potato | white pie | mozzarella | bacon',
+            },
+            {
+                title: 'Vegan',
+                description: 'red onion | mushroom | artichoke | argula | vegan cheese',
+            },
+            {
+                title: 'Spicy Honey',
+                description: 'jalapenos | pepperoni | hot honey',
+            },
+            {
+                title: 'BBQ Chicken',
+                description: 'BBQ chicken | pepperoni | pepperoncini | mozzarella',
+            },
+        ]
+    },
 ];
 
 const contactPageList = [
@@ -88,5 +92,5 @@ const contactPageList = [
     }
 ];
 
-export {menuList, contactPageList};
+export {menuList, contactPageList, navbarList, homePageContent};
 

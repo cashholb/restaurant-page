@@ -1,23 +1,22 @@
-import { menuList, contactPageList } from "./config.js";
+import { menuList, contactPageList, navbarList} from "./config.js";
+import githubLogo from './assets/images/icons/github-mark.png'
+import { homePageContent } from "./config.js";
 
 // Home Page (landing page)
-const homePageElem = () => {
+const homePageElem = (() => {
 
     const homePageDiv = document.createElement('div');
     homePageDiv.classList.add('home');
 
-    // background image
-
-
     // resturant name
     const header = document.createElement('h1');
-    header.textContent = 'FAUX MAMA\'S PIZZA';
+    header.textContent = homePageContent.header;
     homePageDiv.appendChild(header);
 
     // description
-    const description = document.createElement('p');
-    description.textContent = '700 E Pine St Seattle, Washington 98122';
-    homePageDiv.appendChild(description);
+    const underHeaderText = document.createElement('p');
+    underHeaderText.textContent = homePageContent.underHeader;
+    homePageDiv.appendChild(underHeaderText);
 
     // order now button
     const orderBtn = document.createElement('button');
@@ -25,11 +24,11 @@ const homePageElem = () => {
     homePageDiv.appendChild(orderBtn);
 
     return homePageDiv;
-}
+})();
 
 
 // TODO: Menu Page
-const menuPageElem = () => {
+const menuPageElem = (() => {
 
     const menuPageDiv = document.createElement('div');
     menuPageDiv.classList.add('menu');
@@ -41,7 +40,7 @@ const menuPageElem = () => {
         categoryDiv.classList.add('menu-category');
 
         const categoryTitleElem = document.createElement('h1');
-        categoryTitleElem.textContent = category.title;
+        categoryTitleElem.textContent = category.categoryTitle;
 
         categoryTitleElem.style.backgroundImage = `url("${category.image}")`;
 
@@ -71,10 +70,10 @@ const menuPageElem = () => {
     });
 
     return menuPageDiv;
-}
+})();
 
 // Contact Page
-const contactElem = () => {
+const contactPageElem = (() => {
     const contactPageDiv = document.createElement('div');
     contactPageDiv.classList.add('contact');
 
@@ -118,36 +117,29 @@ const contactElem = () => {
     });
 
     return contactPageDiv;
-}
+})();
 
-const navbarElem = () => {
+const navbarElem = (() => {
 
     // navbar
     const navbarDiv = document.createElement('div');
     navbarDiv.classList.add('navbar');
 
     const unorderedList = document.createElement('ul');
-    let l1 = document.createElement('li');
-    l1.setAttribute('id', 'home');
-    l1.textContent = 'Home';
-    
-    let l2 = document.createElement('li');
-    l2.setAttribute('id', 'menu');
-    l2.textContent = 'Menu';
 
-    let l3 = document.createElement('li');
-    l3.setAttribute('id', 'contact');
-    l3.textContent = 'Contact';
-    
-    unorderedList.appendChild(l1);
-    unorderedList.appendChild(l2);
-    unorderedList.appendChild(l3);
+    navbarList.forEach(item => {
+        const liElem = document.createElement('li');
+        liElem.setAttribute('id', `${item.slice(0,1).toLowerCase()}${item.slice(1)}`);
+        liElem.textContent = item;
+        unorderedList.appendChild(liElem);
+    });
+
     navbarDiv.appendChild(unorderedList);
 
     return navbarDiv;
-}
+})();
 
-const footerElem = () => {
+const footerElem = (() => {
 
     const footerDiv = document.createElement('div');
 
@@ -161,13 +153,12 @@ const footerElem = () => {
     const githubLink = document.createElement('a');
     githubLink.href = 'https://github.com/cashholb/resturant-page';
     const githubImage = document.createElement('img');
-    githubImage.src = './github-mark.png';
+    githubImage.src = githubLogo;
     githubImage.alt = 'github logo image the links to the github repository';
     githubLink.appendChild(githubImage);
     footerDiv.appendChild(githubLink);
 
     return footerDiv;
-}
+})();
 
-
-export {homePageElem, menuPageElem, contactElem, footerElem, navbarElem};
+export {homePageElem, menuPageElem, contactPageElem, footerElem, navbarElem};
