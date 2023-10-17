@@ -1,6 +1,6 @@
 ## Faux Mama's Pizza
 
-An example webpage for a fake pizza resturant
+An example webpage for a fake pizza resturant 
 
 **Live Demo:** <a href='https://cashholb.github.io/resturant-page/'>cashholb.github.io/resturant-page</a>
 
