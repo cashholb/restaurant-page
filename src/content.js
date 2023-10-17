@@ -1,5 +1,6 @@
 import { menuList, contactPageList, navbarList} from "./config.js";
-import githubLogo from './assets/images/icons/github-mark.png'
+import githubLogo from './assets/images/icons/github-mark.png';
+import googleMapsImg from './assets/images/google_map/googleMapsScreenshot.png';
 import { homePageContent } from "./config.js";
 
 // Home Page (landing page)
@@ -77,10 +78,10 @@ const contactPageElem = (() => {
     const contactPageDiv = document.createElement('div');
     contactPageDiv.classList.add('contact');
 
-    // map (google api)
-    const map = document.createElement('div');
+    // map
+    const map = document.createElement('img');
+    map.src = googleMapsImg;
     map.classList.add('map');
-    map.textContent = 'map';
     contactPageDiv.appendChild(map);
 
     // contact
