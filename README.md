@@ -2,7 +2,7 @@
 
 An example webpage for a fake pizza resturant 
 
-**Live Demo:** <a href='https://cashholb.github.io/resturant-page/'>cashholb.github.io/resturant-page</a>
+**Live Demo:** <a href='https://cashholb.github.io/restaurant-page/'>cashholb.github.io/resturant-page</a>
 
 ### Technologies Used:
 - Javascript / CSS / html
